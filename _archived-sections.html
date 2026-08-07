@@ -1,0 +1,102 @@
+<!--
+  ARCHIVED SECTIONS — not part of the live site.
+
+  These panels were removed from index.html when the nav was trimmed to
+  About / Reading / Blog. The full professional detail also lives in the CV PDF.
+
+  To restore any of them:
+    1. Copy its <section class="panel" …> block back into index.html (inside <main>).
+    2. Add a matching <a … data-view="…"> link to the sidebar <nav>.
+    3. Add its id to the VIEWS array in app.js.
+-->
+
+<!-- ----------- EXPERIENCE ----------- -->
+<section class="panel" id="experience" data-view="experience">
+  <h2 class="panel__title">Experience</h2>
+  <div class="entry">
+    <div class="entry__meta">2023 — Present</div>
+    <div class="entry__body">
+      <h3>ML Efficiency, YouTube</h3>
+      <div class="entry__sub">Google · Mountain View, CA</div>
+      <p>Bootstrapped and led an ML efficiency workstream across 20+ teams and 100+
+      developers and researchers, optimizing recommendation, generative, and safety
+      models. Delivered $40M+ in resource savings and $100M+ in additional revenue
+      through low-level TPU optimizations, compiler improvements, strategic workload
+      placement, and revamped resource planning.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__meta">2018 — 2022</div>
+    <div class="entry__body">
+      <h3>TensorFlow Compiler &amp; Performance, Google Brain</h3>
+      <div class="entry__sub">Google · Mountain View, CA</div>
+      <p>Architected and built an MLIR-based compiler bridge for the TensorFlow XLA/TPU
+      backend and TFMobile, mentoring 10+ engineers through design, implementation, and
+      production rollout. Improved GPU performance via TensorRT integration and kernel
+      optimization. Recognized as a top-25 contributor to the open-source TensorFlow
+      repository.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__meta">2015 — 2018</div>
+    <div class="entry__body">
+      <h3>Indexing &amp; Storage Infrastructure, Search</h3>
+      <div class="entry__sub">Google · Mountain View, CA</div>
+      <p>Architected a core lookup service for Google's indexing storage system (5M+ QPS),
+      replacing static sharding with dynamic load balancing for 10+ critical client teams.
+      Delivered the first major overhaul of the indexing data format since 2008, driving
+      1.4x–15x performance improvements for critical data pipelines.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__meta">2013</div>
+    <div class="entry__body">
+      <h3>Software Engineer Intern, Growth</h3>
+      <div class="entry__sub">Facebook · Menlo Park, CA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ----------- PUBLICATIONS ----------- -->
+<section class="panel" id="publications" data-view="publications">
+  <h2 class="panel__title">Publications</h2>
+  <div class="entry">
+    <div class="entry__meta">2025</div>
+    <div class="entry__body">
+      <h3>Distributed Serving of Partitioned Machine Learning Models Across Heterogeneous Hardware Resources</h3>
+      <div class="entry__sub">V. Gatto, J. Li, C. Chen, H. Fu, B. Froehle, <strong>S. Hinsu</strong>, D. Jain, A. Nath, R. Jia, et al.</div>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__meta">2019</div>
+    <div class="entry__body">
+      <h3><a href="https://arxiv.org/abs/1902.08295" target="_blank" rel="noopener">Lingvo: A Modular and Scalable Framework for Sequence-to-Sequence Modeling</a></h3>
+      <div class="entry__sub">J. Shen, P. Nguyen, Y. Wu, Z. Chen, et al. (incl. <strong>S. Hinsu</strong>) · arXiv:1902.08295</div>
+    </div>
+  </div>
+</section>
+
+<!-- ----------- EDUCATION ----------- -->
+<section class="panel" id="education" data-view="education">
+  <h2 class="panel__title">Education</h2>
+  <div class="entry">
+    <div class="entry__meta">2010 — 2014</div>
+    <div class="entry__body">
+      <h3>B.Tech in Computer Science</h3>
+      <div class="entry__sub">IIIT Hyderabad · Hyderabad, India</div>
+      <p>Led the Competitive Programming Club — organizing educational sessions, practice
+      contests, and mentoring peers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ----------- HONORS ----------- -->
+<section class="panel" id="honors" data-view="honors">
+  <h2 class="panel__title">Honors &amp; Awards</h2>
+  <ul class="honors">
+    <li><strong>ACM-ICPC World Finals.</strong> Ranked 1st in two Indian regionals — a first in the competition's history.</li>
+    <li><strong>Performance Awards @ Google.</strong> 10+ Perfy Awards for novel performance improvements.</li>
+    <li><strong>Peer &amp; Spot Bonuses @ Google.</strong> 90+ awards for cross-functional collaboration and leadership.</li>
+    <li><strong>Top-25 contributor</strong> to the open-source TensorFlow repository.</li>
+  </ul>
+</section>
