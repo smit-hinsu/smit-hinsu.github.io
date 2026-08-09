@@ -4,3 +4,22 @@
       (https://www.blaiseaguera.com/) — typography, spacing, restraint, and
       distinctive-yet-minimal visual identity. Current site is clean but plain;
       aim for the intentional, editorial feel of Blaise's pages.
+
+- [ ] Turn the book reviews into blog posts. They currently live only in the
+      Reading modals (the `Review` badge). Promote them to real posts under
+      `posts/` so they have their own URLs, can be linked and shared, and give
+      the Blog tab its initial content. Decide whether the modal stays as a
+      preview that links out, or goes away entirely.
+
+## Open questions from the last pass (2026-08-08)
+
+- [x] Mission callout vs. bio — resolved: the `.goal` callout was removed. The
+      bio's own second sentence carries the goal. `.goal` / `.goal__label` CSS
+      is now dead too.
+- [ ] The `X` link is last in the social list and wraps to sit alone at the end
+      of line 1. Reorder or relabel if it bothers you.
+- [ ] `.tags` CSS in `styles.css` is now dead — the Technical focus section that
+      used it was removed. Delete it on the next styles cleanup.
+- [ ] The About panel is short now (ends ~40% down the viewport). Either lean
+      into the minimalism as part of the beautify task above, or give it back
+      some substance.

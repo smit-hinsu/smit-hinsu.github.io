@@ -9,6 +9,12 @@ Static personal site (plain HTML/CSS/JS, no build step). Live at https://smit-hi
   nav and preserved in **`_archived-sections.html`** (with restore instructions). The
   **résumé PDF** carries the formal professional detail. Don't re-add those sections
   without deciding to.
+- **Technical focus** (the tag list of ML compilers / accelerators / infra / DB) was also
+  removed from About, for the same reason — the résumé carries it. The `.tags` CSS is still
+  in `styles.css` if it's ever restored.
+- The **About** panel is deliberately spare: one bio paragraph, then Currently building.
+  The bio is the owner's own wording — don't rewrite it without asking. A separate "Mission"
+  callout (`.goal`) was tried and removed; the bio's second sentence states the goal instead.
 - **Reading** is built from curated Goodreads shelves ("transformational", "insightful")
   plus an "Also recommended" grid of other 4–5★ reads. Book covers are stored locally
   under `covers/` and `covers/more/` so the site is self-contained.
