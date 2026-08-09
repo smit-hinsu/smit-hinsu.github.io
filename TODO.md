@@ -11,6 +11,11 @@
       the Blog tab its initial content. Decide whether the modal stays as a
       preview that links out, or goes away entirely.
 
+- [ ] Write notes, a summary, and a review for every book I read — not just the
+      handful with reviews today. Build the habit of capturing each book on
+      Goodreads (notes + summary + review), then surface them on the site so the
+      `Review` badge covers the whole shelf rather than a few titles.
+
 ## Open questions from the last pass (2026-08-08)
 
 - [x] Mission callout vs. bio — resolved: the `.goal` callout was removed. The
