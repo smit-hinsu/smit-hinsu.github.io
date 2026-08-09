@@ -16,6 +16,9 @@
       Goodreads (notes + summary + review), then surface them on the site so the
       `Review` badge covers the whole shelf rather than a few titles.
 
+- [ ] Read everything about Richard Feynman — his books, lectures, letters, and
+      biographies. Deep-dive the whole corpus.
+
 ## Open questions from the last pass (2026-08-08)
 
 - [x] Mission callout vs. bio — resolved: the `.goal` callout was removed. The
