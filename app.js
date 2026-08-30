@@ -7,28 +7,28 @@
   /* ---- Book metadata (order-independent lookup) ---- */
   var BOOKS = {
     'singularity':          { title: 'The Singularity is Near',       author: 'Ray Kurzweil',      cover: 'covers/singularity.jpg' },
-    'metaphors':            { title: 'Metaphors We Live By',          author: 'George Lakoff',     cover: 'covers/metaphors.jpg',     review: 'rev-metaphors' },
+    'metaphors':            { title: 'Metaphors We Live By',          author: 'George Lakoff',     cover: 'covers/metaphors.jpg',     review: 'rev-metaphors', post: 'posts/2022-03-18-metaphors-we-live-by.html' },
     'behave':               { title: 'Behave',                        author: 'Robert M. Sapolsky',cover: 'covers/behave.jpg' },
     'selfish-gene':         { title: 'The Selfish Gene',              author: 'Richard Dawkins',   cover: 'covers/selfish-gene.jpg' },
     'thinking-fast-slow':   { title: 'Thinking, Fast and Slow',       author: 'Daniel Kahneman',   cover: 'covers/thinking-fast-slow.jpg' },
     'righteous-mind':       { title: 'The Righteous Mind',            author: 'Jonathan Haidt',    cover: 'covers/righteous-mind.jpg' },
     'thinking-systems':     { title: 'Thinking in Systems',           author: 'Donella H. Meadows',cover: 'covers/thinking-systems.jpg' },
-    'bad-samaritans':       { title: 'Bad Samaritans',                author: 'Ha-Joon Chang',     cover: 'covers/bad-samaritans.jpg', review: 'rev-bad-samaritans' },
+    'bad-samaritans':       { title: 'Bad Samaritans',                author: 'Ha-Joon Chang',     cover: 'covers/bad-samaritans.jpg', review: 'rev-bad-samaritans', post: 'posts/2021-01-17-bad-samaritans.html' },
     'disunited':            { title: 'Disunited Nations',             author: 'Peter Zeihan',      cover: 'covers/disunited.jpg' },
-    'never-split':          { title: 'Never Split the Difference',    author: 'Chris Voss',        cover: 'covers/never-split.jpg',   review: 'rev-never-split' },
+    'never-split':          { title: 'Never Split the Difference',    author: 'Chris Voss',        cover: 'covers/never-split.jpg',   review: 'rev-never-split', post: 'posts/2022-03-02-never-split-the-difference.html' },
     'crucial-conversations':{ title: 'Crucial Conversations',         author: 'Kerry Patterson',   cover: 'covers/crucial-conversations.jpg' },
     'gtd':                  { title: 'Getting Things Done',           author: 'David Allen',       cover: 'covers/gtd.jpg' },
     'ove':                  { title: 'A Man Called Ove',              author: 'Fredrik Backman',   cover: 'covers/ove.jpg' },
 
     'genius-makers':        { title: 'Genius Makers',                 author: 'Cade Metz',            cover: 'covers/genius-makers.jpg' },
-    'code-breaker':         { title: 'The Code Breaker',              author: 'Walter Isaacson',      cover: 'covers/code-breaker.jpg',   review: 'rev-code-breaker' },
+    'code-breaker':         { title: 'The Code Breaker',              author: 'Walter Isaacson',      cover: 'covers/code-breaker.jpg',   review: 'rev-code-breaker', post: 'posts/2021-12-12-the-code-breaker.html' },
     'incognito':            { title: 'Incognito',                     author: 'David Eagleman',       cover: 'covers/incognito.jpg' },
-    'science-storytelling': { title: 'The Science of Storytelling',   author: 'Will Storr',           cover: 'covers/science-storytelling.jpg', review: 'rev-science-storytelling' },
+    'science-storytelling': { title: 'The Science of Storytelling',   author: 'Will Storr',           cover: 'covers/science-storytelling.jpg', review: 'rev-science-storytelling', post: 'posts/2021-10-30-the-science-of-storytelling.html' },
     'feynman':              { title: "Surely You're Joking, Mr. Feynman!", author: 'Richard P. Feynman', cover: 'covers/feynman.jpg' },
     'idea-factory':         { title: 'The Idea Factory',              author: 'Jon Gertner',          cover: 'covers/idea-factory.jpg' },
-    'school-of-life':       { title: 'The School of Life',            author: 'Alain de Botton',      cover: 'covers/school-of-life.jpg', review: 'rev-school-of-life' },
-    'talk-to-someone':      { title: 'Maybe You Should Talk to Someone', author: 'Lori Gottlieb',     cover: 'covers/talk-to-someone.jpg', review: 'rev-talk-to-someone' },
-    'shah-rukh':            { title: 'Desperately Seeking Shah Rukh',  author: 'Shrayana Bhattacharya', cover: 'covers/shah-rukh.jpg',    review: 'rev-shah-rukh' },
+    'school-of-life':       { title: 'The School of Life',            author: 'Alain de Botton',      cover: 'covers/school-of-life.jpg', review: 'rev-school-of-life', post: 'posts/2021-12-03-the-school-of-life.html' },
+    'talk-to-someone':      { title: 'Maybe You Should Talk to Someone', author: 'Lori Gottlieb',     cover: 'covers/talk-to-someone.jpg', review: 'rev-talk-to-someone', post: 'posts/2021-09-19-maybe-you-should-talk-to-someone.html' },
+    'shah-rukh':            { title: 'Desperately Seeking Shah Rukh',  author: 'Shrayana Bhattacharya', cover: 'covers/shah-rukh.jpg',    review: 'rev-shah-rukh', post: 'posts/2022-01-14-desperately-seeking-shah-rukh.html' },
     'trade-wars':           { title: 'Trade Wars Are Class Wars',     author: 'Matthew C. Klein',     cover: 'covers/trade-wars.jpg' },
     'broken-money':         { title: 'Broken Money',                  author: 'Lyn Alden',            cover: 'covers/broken-money.jpg' },
     'buffett':              { title: 'Buffett',                       author: 'Roger Lowenstein',     cover: 'covers/buffett.jpg' },
@@ -110,6 +110,12 @@
     if (b.review) {
       var tpl = document.getElementById(b.review);
       if (tpl) mReview.appendChild(tpl.content.cloneNode(true));
+      if (b.post) {
+        var more = document.createElement('p');
+        more.className = 'modal__more';
+        more.innerHTML = '<a href="' + b.post + '">Read on its own page ↗</a>';
+        mReview.appendChild(more);
+      }
     } else {
       mReview.innerHTML = '<p class="modal__norev">No written note for this one — just a five-star favorite.</p>';
     }

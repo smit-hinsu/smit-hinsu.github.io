@@ -345,6 +345,7 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
 .modal__review ul { margin: 0 0 12px; padding-left: 20px; }
 .modal__review li { margin-bottom: 6px; font-size: 0.97rem; }
 .modal__norev { color: var(--text-muted); font-style: italic; }
+.modal__more { margin: 18px 0 0; font-weight: 500; }
 
 /* ---------------- Mission (used only if re-enabled) ---------------- */
 .mission { margin-bottom: 40px; padding: 22px 26px; border-left: 3px solid var(--link); background: var(--accent-bg); border-radius: 0 6px 6px 0; }
