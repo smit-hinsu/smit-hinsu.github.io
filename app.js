@@ -54,6 +54,18 @@
   document.querySelectorAll('.panel').forEach(function (p) { panels[p.id] = p; });
   document.querySelectorAll('.nav__link').forEach(function (a) { links[a.dataset.view] = a; });
 
+  /* ---- GoatCounter (cookieless): per-section pageviews + click events ---- */
+  var gcInited = false;
+  function gcCount(vars) {
+    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count(vars);
+  }
+  function gcSlug(s) {
+    return (s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+  function gcClick(label) {
+    gcCount({ path: 'click:' + gcSlug(label), title: 'Click: ' + label, event: true });
+  }
+
   function showView(id, push) {
     if (VIEWS.indexOf(id) === -1) id = 'about';
     VIEWS.forEach(function (v) {
@@ -64,6 +76,9 @@
     var main = document.querySelector('.main');
     if (main) main.scrollTop = 0;
     window.scrollTo(0, 0);
+    // Count section switches as pageviews (initial load is auto-counted as "/").
+    if (gcInited) gcCount({ path: '/#' + id, title: 'Section: ' + id });
+    gcInited = true;
   }
 
   document.querySelectorAll('.nav__link').forEach(function (a) {
@@ -100,6 +115,7 @@
     }
     modal.hidden = false;
     document.body.classList.add('modal-open');
+    gcCount({ path: 'book:' + key, title: 'Book: ' + b.title, event: true });
   }
 
   function closeBook() {
@@ -138,6 +154,13 @@
     var bi = VIEWS.indexOf('blog');
     if (bi > -1) VIEWS.splice(bi, 1);
   }
+
+  /* ---- Track clicks on links that leave the page (external + CV) and the email ---- */
+  document.querySelectorAll('a[target="_blank"], a.js-email').forEach(function (a) {
+    a.addEventListener('click', function () {
+      gcClick(a.dataset.gc || a.textContent.trim());
+    });
+  });
 
   /* ---- Init ---- */
   document.getElementById('year').textContent = new Date().getFullYear();
