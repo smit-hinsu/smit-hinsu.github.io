@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /_archived-sections.html
+Disallow: /posts/_template.html
+Disallow: /NOTES.md
+Disallow: /TODO.md
+
+Sitemap: https://smit-hinsu.github.io/sitemap.xml

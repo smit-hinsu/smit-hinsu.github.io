@@ -40,6 +40,14 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
 }
 .back:hover { color: var(--link); text-decoration: none; }
 
+.article__kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--link);
+  margin: 0 0 10px;
+}
 .article__title {
   font-family: var(--serif);
   font-size: 2.1rem;
@@ -52,6 +60,33 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   color: var(--text-muted);
   font-size: 0.95rem;
   margin: 0 0 36px;
+}
+
+/* Small book cover floated beside the review so the text starts at the top */
+.article__body { }
+.article__body::after { content: ""; display: block; clear: both; }
+.cover {
+  float: right;
+  width: 116px;
+  margin: 4px 0 16px 26px;
+}
+.cover img {
+  width: 116px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.22);
+  display: block;
+}
+.cover figcaption {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+@media (max-width: 520px) {
+  .cover { width: 96px; margin-left: 16px; }
+  .cover img { width: 96px; }
 }
 
 .article__body h2 {

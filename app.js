@@ -99,23 +99,20 @@
   var mAuthor = document.getElementById('m-author');
   var mReview = document.getElementById('m-review');
 
+  var reviewCache = {};   // post path -> review body HTML (single source: the post page)
+  var currentBook = null;
+
   function openBook(key) {
     var b = BOOKS[key];
     if (!b) return;
+    currentBook = key;
     mCover.src = b.cover;
     mCover.alt = b.title;
     mTitle.textContent = b.title;
     mAuthor.textContent = b.author;
     mReview.innerHTML = '';
-    if (b.review) {
-      var tpl = document.getElementById(b.review);
-      if (tpl) mReview.appendChild(tpl.content.cloneNode(true));
-      if (b.post) {
-        var more = document.createElement('p');
-        more.className = 'modal__more';
-        more.innerHTML = '<a href="' + b.post + '">Read on its own page ↗</a>';
-        mReview.appendChild(more);
-      }
+    if (b.post) {
+      loadReview(key, b);
     } else {
       mReview.innerHTML = '<p class="modal__norev">No written note for this one — just a five-star favorite.</p>';
     }
@@ -124,9 +121,34 @@
     gcCount({ path: 'book:' + key, title: 'Book: ' + b.title, event: true });
   }
 
+  // Pull the review from its post so the modal and the post never diverge.
+  function loadReview(key, b) {
+    function render(bodyHtml) {
+      if (currentBook !== key) return;   // user opened another book meanwhile
+      mReview.innerHTML = bodyHtml +
+        '<p class="modal__more"><a href="' + b.post + '">Read on its own page ↗</a></p>';
+    }
+    if (reviewCache[b.post]) { render(reviewCache[b.post]); return; }
+    mReview.innerHTML = '<p class="modal__norev">Loading review…</p>';
+    fetch(b.post)
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var body = doc.querySelector('.article__body');
+        if (body) { var fig = body.querySelector('.cover'); if (fig) fig.remove(); } // modal already shows the cover
+        reviewCache[b.post] = body ? body.innerHTML : '';
+        render(reviewCache[b.post]);
+      })
+      .catch(function () {
+        if (currentBook === key)
+          mReview.innerHTML = '<p class="modal__more"><a href="' + b.post + '">Read my full review ↗</a></p>';
+      });
+  }
+
   function closeBook() {
     modal.hidden = true;
     document.body.classList.remove('modal-open');
+    currentBook = null;
   }
 
   document.querySelectorAll('.bk').forEach(function (btn) {
